@@ -1,0 +1,31 @@
+
+#A python program to illustrate Caesar Cipher Technique
+def encrypt(text,s):
+    result = ""
+
+    for i in range(len(text)):
+
+        char = text[i]
+        # Encrypt uppercase characters
+        if(char.isalpha()):
+            if (char.isupper()):
+                result += chr((ord(char) + s - 65) % 26 + 65)
+            else:
+                if (char.islower()):
+                    result += chr((ord(char) + s - 97) % 26 + 97)
+        else:
+            result+=char
+    return result
+print(encrypt("I AM A MAN",3))
+
+
+    # traverse text
+
+
+"""#check the above function
+text = "ATTACKATONCE"
+s = 3
+print ("Text  : " + text)
+print ("Shift : " + str(s))
+print ("Cipher: " + encrypt(text,s))
+"""
