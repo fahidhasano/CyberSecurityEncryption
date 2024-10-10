@@ -35,7 +35,7 @@ def decrypt(text,s):
 
 
 print(encrypt("I am a man",3))
-print(decrypt("L dp d pdq",3))
+print(decrypt("WKLVP HVVDJ HLVWR SVHFU HW.",3))
 
 
     # traverse text

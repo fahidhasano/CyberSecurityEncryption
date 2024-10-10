@@ -1,174 +1,45 @@
-"""def encrypt(tex,s):
-    result= " "
-    for i in range(len(tex)):
-        char=tex[i]
-        if(char.isupper()):
-            result += chr((ord(char)+s-65)%26+65)
-        else:
-            result+= chr((ord(char)+s-97)%26+97)
-    return result
-
-
-print(encrypt("THISMESSAGEISTOPSECRET",3))
-"""
-
-"""x=36%26+9
-print(x)"""
-"""
-g=(ord("B")+3-65)%26+65
-i=(ord("B")+3-65)%26+65
-h=chr(g)
-print(g)
-print(h)"""
-
-
-"""
-m=[[1,2,3,4],[5,6,9,7],[10,13,11,12]]
-l=[]
-for i in m:
-    print()
-
-
-"""
-
-
-
-"""
-print(m[0][3])"""
-"""for i in m:
-    print(i[0] ,i[1] ,i [2] ,i[3])"""
-
-
-
-"""
-
-
-
-
-
-nested_list = [[1, 2, 3, 4], [5, 6, 9, 7], [10, 13, 11, 12]]
-flattened_list = []
-for sublist in nested_list:
-    for item in sublist:
-        flattened_list.append(item)
-print(flattened_list)  # Output: [1, 2, 3, 4, 5, 6, 9, 7, 10, 13, 11, 12]
-
-"""
-
-
-
-
-
-"""
-m=[[1,2,3,4],[5,6,9,7],[10,13,11,12]]
-l=[]
-for i in m:
-    for j in i:
-        l.append(j)
-
-print(l)
-
-
-"""
-
-
-
-"""
-y=[1,2,3,4,5,6]
-
-o=map(lambda x: x**2,y)
-t=list(o)
-print(t)
-
-"""
-
-"""
-a=3
-b=2
-a,b=b,a
-
-
-
-
-print("a=",a)
-print("b=",b)
-
-"""
-
-
-
-
-def encrypt(text, shift):
-    result = ""
-    for char in text:
-        if char.isalpha():
-            offset = ord(char) - ord('A') if char.isupper() else ord(char) - ord('a')
-            encrypted_char = chr((offset + shift) % 26 + ord('A'))
-            result += encrypted_char
-        else:
-            result += char
-    return result
-
-print(encrypt("I am a man", 3))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#Most appropriate code is:
+
+import random
+import math
+
+
+
+def is_prime(number):
+    if number<2:
+        return False
+    for i in range(2,number//2+1):
+        if number%i==0:
+            return False
+    return True
+
+def generate_prime(min,max):
+    prime= random.randint(min,max)
+    while not is_prime(prime):
+        prime = random.randint(min, max)
+    return prime
+
+def mod_inverse (e,phi):
+    for d in range(3,phi):
+        if (d*e) % phi !=1:
+            return d
+        raise ValueError("Mod_inverse does not exist!")
+p=generate_prime(1000,50000)
+q=generate_prime(1000,50000)
+
+while p==q:
+    q=generate_prime(1000,50000), generate_prime(1000,50000)
+n =p*q
+phi_n= (p-1)*(q-1)
+e= random.randint(3,phi_n-1)
+while math.gcd(e,phi_n)!=1:
+    e = random.randint(3, phi_n - 1)
+d= mod_inverse(e,phi_n)
+message=input("Enter")
+
+print ("Prime number P: ", p)
+print ("Prime number q: ", q)
+print ("Public Key: ", e)
+print ("Private Key: ", d)
+print ("n: ", n)
+print ("Phi of n: ", phi_n, " Secret")
