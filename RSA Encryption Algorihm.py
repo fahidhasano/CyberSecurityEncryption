@@ -47,9 +47,9 @@ ciphertext= [pow(c,e,n) for c in message_encoded]
 print("Cyphertext in unicodes in list form:",ciphertext)
 
 txt= "".join(chr(ch) for ch in ciphertext )
-print("The cyphertext is:",txt)
+print("The encoded cyphertext is:",txt)
 message_decoded= [pow(ch,d,n) for ch in ciphertext]
 print("Decoded cyphertext unicodes in list form:",message_decoded)
 text= "".join(chr(ch)for ch in message_decoded)
-print("The decoded version of your message which you input before:",text)
+print("The decoded version of your message which you entered before:",text)
 
